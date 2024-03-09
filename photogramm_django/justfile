@@ -1,0 +1,17 @@
+set dotenv-load := true
+set ignore-comments := true
+
+py := "$VIRTUAL_ENV/bin/python"
+manpy := justfile_directory() / "manage.py"
+
+# _venv:
+#     [ -d {{ venv }} ] || python -m venv {{ venv }}
+
+runserver *args:
+    @{{ py }} {{ manpy }} runserver_plus {{ args }}
+
+makemig *args:
+    @{{ py }} {{ manpy }} makemigrations {{ args }}
+
+migrate *args:
+    @{{ py }} {{ manpy }} migrate {{ args }}

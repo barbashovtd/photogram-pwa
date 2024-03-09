@@ -1,0 +1,48 @@
+{
+  "name": "photogramm",
+  "version": "0.0.1",
+  "description": "Photogrammetry crossplatform app",
+  "productName": "Photogramm",
+  "author": "barbashovtd <barbashovtd@mail.ru>",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.vue ./",
+    "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev",
+    "build": "quasar build"
+  },
+  "dependencies": {
+    "@capacitor/camera": "^5.0.9",
+    "@capacitor/core": "^5.7.0",
+    "@capacitor/filesystem": "^5.2.1",
+    "@ionic/pwa-elements": "^3.2.2",
+    "@quasar/cli": "^2.4.0",
+    "@quasar/extras": "^1.16.9",
+    "@tresjs/cientos": "^3.8.0",
+    "@tresjs/core": "^3.7.0",
+    "axios": "^1.6.7",
+    "pinia": "^2.1.7",
+    "quasar": "^2.14.5",
+    "three": "^0.161.0",
+    "vue": "3.4.15",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@quasar/app-vite": "2.0.0-beta.1",
+    "@types/three": "^0.161.2",
+    "@vue/devtools": "^7.0.15",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.21.1",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5"
+  },
+  "engines": {
+    "node": "^24 || ^22 || ^20 || ^18",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}

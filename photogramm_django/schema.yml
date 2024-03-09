@@ -1,0 +1,557 @@
+openapi: 3.0.3
+info:
+  title: ''
+  version: 0.0.0
+paths:
+  /gallery/:
+    get:
+      operationId: gallery_list
+      tags:
+      - gallery
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Gallery'
+          description: ''
+    post:
+      operationId: gallery_create
+      tags:
+      - gallery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gallery'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Gallery'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Gallery'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gallery'
+          description: ''
+  /gallery/{id}/:
+    get:
+      operationId: gallery_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Фото модели.
+        required: true
+      tags:
+      - gallery
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gallery'
+          description: ''
+    put:
+      operationId: gallery_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Фото модели.
+        required: true
+      tags:
+      - gallery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gallery'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Gallery'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Gallery'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gallery'
+          description: ''
+    patch:
+      operationId: gallery_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Фото модели.
+        required: true
+      tags:
+      - gallery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedGallery'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedGallery'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedGallery'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gallery'
+          description: ''
+    delete:
+      operationId: gallery_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Фото модели.
+        required: true
+      tags:
+      - gallery
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /models/:
+    get:
+      operationId: models_list
+      tags:
+      - models
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Mesh'
+          description: ''
+    post:
+      operationId: models_create
+      tags:
+      - models
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mesh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Mesh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Mesh'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mesh'
+          description: ''
+  /models/{id}/:
+    get:
+      operationId: models_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Модель.
+        required: true
+      tags:
+      - models
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mesh'
+          description: ''
+    put:
+      operationId: models_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Модель.
+        required: true
+      tags:
+      - models
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mesh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Mesh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Mesh'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mesh'
+          description: ''
+    patch:
+      operationId: models_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Модель.
+        required: true
+      tags:
+      - models
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMesh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMesh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMesh'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mesh'
+          description: ''
+    delete:
+      operationId: models_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Модель.
+        required: true
+      tags:
+      - models
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /schema/:
+    get:
+      operationId: schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - ug
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - schema
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+components:
+  schemas:
+    Gallery:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: Фото
+          readOnly: true
+        name:
+          type: string
+          title: Название
+          maxLength: 256
+      required:
+      - id
+      - images
+      - name
+    Mesh:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Имя
+          maxLength: 256
+        date_created:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Создано
+        mesh:
+          type: string
+          format: uri
+          nullable: true
+          title: Файл
+        gallery:
+          type: integer
+          nullable: true
+          title: Фото
+      required:
+      - date_created
+      - id
+      - name
+    PatchedGallery:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: Фото
+          readOnly: true
+        name:
+          type: string
+          title: Название
+          maxLength: 256
+    PatchedMesh:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: Имя
+          maxLength: 256
+        date_created:
+          type: string
+          format: date-time
+          readOnly: true
+          title: Создано
+        mesh:
+          type: string
+          format: uri
+          nullable: true
+          title: Файл
+        gallery:
+          type: integer
+          nullable: true
+          title: Фото
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

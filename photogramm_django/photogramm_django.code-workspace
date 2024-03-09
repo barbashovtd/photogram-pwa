@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+		"mypy.runUsingActiveInterpreter": true,
+		"mypy.enabled": false,
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.black-formatter",
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": "explicit",
+			}
+		},
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-python.black-formatter",
+			"matangover.mypy",
+			"charliermarsh.ruff",
+			"streetsidesoftware.code-spell-checker",
+			"ms-azuretools.vscode-docker",
+			"antfu.vite",
+			"vue.volar",
+			"streetsidesoftware.code-spell-checker-russian",
+			"esbenp.prettier-vscode",
+		]
+	}
+}

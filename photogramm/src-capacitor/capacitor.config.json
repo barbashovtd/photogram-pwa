@@ -1,0 +1,8 @@
+{
+  "appId": "org.visualspace.photogramm.app",
+  "appName": "Photogramm",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

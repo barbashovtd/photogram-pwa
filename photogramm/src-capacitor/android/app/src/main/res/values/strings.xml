@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Photogramm</string>
+    <string name="title_activity_main">Photogramm</string>
+    <string name="package_name">org.visualspace.photogramm.app</string>
+    <string name="custom_url_scheme">org.visualspace.photogramm.app</string>
+</resources>
