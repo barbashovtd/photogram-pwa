@@ -13,12 +13,12 @@ from .models import Gallery, Mesh, MeshImage
 from .serializers import GallerySerializer, MeshImageSerializer, MeshSerializer
 
 
-class MeshModelViewSet(viewsets.ModelViewSet):
+class MeshModelViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Mesh.objects.all()
     serializer_class = MeshSerializer
 
 
-class GalleryModelViewSet(viewsets.ModelViewSet):
+class GalleryModelViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Gallery.objects.all()
     serializer_class = GallerySerializer
 
@@ -72,8 +72,9 @@ class MeshModelCreate(generics.CreateAPIView):
         mesh.save()
         shutil.rmtree(img_dir)
 
-        # return super().post(request, *args, **kwargs)
-        return Response(status=status.HTTP_200_OK)
+        mesh_response = MeshSerializer(mesh).data
+        mesh_response.pop("gallery")
+        return Response(data=mesh_response, status=status.HTTP_200_OK)
 
 
 class GalleryModelCreate(generics.CreateAPIView):
