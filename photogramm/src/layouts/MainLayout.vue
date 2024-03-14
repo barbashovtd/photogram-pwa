@@ -47,16 +47,25 @@ import { computed, ref, onMounted } from "vue";
 import EssentialLink from "components/EssentialLink.vue";
 import PhotoGallery from "components/PhotoGallery.vue";
 import { api } from "src/boot/axios";
-import { useQuasar } from "quasar";
-
-const $q = useQuasar();
-const isMobile = $q.platform.is.mobile;
+import { useMeshStore } from "src/stores/meshStore";
+import { MutationType } from "pinia";
 
 const modelsList = ref(null);
 
 onMounted(async () => {
   const response = await api.get("models/");
   modelsList.value = response.data;
+});
+
+const meshStore = useMeshStore();
+
+meshStore.$subscribe((mutation, state) => {
+  if (mutation.type === MutationType.patchObject) {
+    async () => {
+      const response = await api.get("models/");
+      modelsList.value = response.data;
+    };
+  }
 });
 
 const qDrawerWidth = computed(() => window.width * 0.5);
