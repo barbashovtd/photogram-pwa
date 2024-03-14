@@ -16,6 +16,7 @@
         :form-fields="[{ name: 'gallery', value: galleryName }]"
         accept="image/*"
         max-total-size="104857600"
+        max-files="20"
         label="Фото"
         text-color="#eaeaea"
         bordered
@@ -42,6 +43,7 @@ const galleryUploadURL = process.env.API_BASE + "/gallery/";
 
 const galleryName = ref("");
 const uploader = ref(null);
+const meshStore = useMeshStore();
 
 function uploadFactory(files) {
   return {
@@ -49,7 +51,6 @@ function uploadFactory(files) {
     method: "POST",
   };
 }
-// Кнопка на создание модели, по ней MeshModelCreate на API, запуск meshroom
 
 async function uploadGallery() {
   const created = await api.post("/gallery/", { name: galleryName.value });
@@ -58,6 +59,7 @@ async function uploadGallery() {
     const modelCreated = await api.post("/model/", {
       name: galleryName.value,
     });
+    meshStore.$patch({ name: modelCreated.name, mesh: modelCreated.mesh });
   }
 }
 </script>
