@@ -1,22 +1,22 @@
-// TODO: Split to mesh.vue with useGLTF and ModelRender.vue (because of
-Suspense)
 <template>
   <TresCanvas v-bind="gl" window-size>
     <TresPerspectiveCamera :position="[4, 2, 4]" />
-    <OrbitControls />
+    <OrbitControls make-default />
     <Suspense>
-      <GLTFModel :path="meshStore.mesh" :key="meshStore.name" draco />
+      <CurrentMesh :mesh="meshStore.mesh" :key="meshStore.name" />
     </Suspense>
-    <TresDirectionalLight :position="[1, 1, 1]" :intensity="0.75" cast-shadow />
+    <!-- <GLTFModel :path="meshStore.mesh" :key="meshStore.name" draco /> -->
+    <TresDirectionalLight :position="[2, 2, 2]" :intensity="1" cast-shadow />
   </TresCanvas>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { Suspense, defineProps, shallowRef, ref } from "vue";
 import { TresCanvas, useRenderLoop } from "@tresjs/core";
-import { GLTFModel, OrbitControls } from "@tresjs/cientos";
+import { OrbitControls, TransformControls } from "@tresjs/cientos";
 import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from "three";
 import { useMeshStore } from "stores/meshStore";
+import CurrentMesh from "./CurrentMesh.vue";
 
 const meshStore = useMeshStore();
 
