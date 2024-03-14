@@ -10,8 +10,9 @@
 </template>
 
 <script setup>
-import { defineProps, computed, ref } from "vue";
+import { ref } from "vue";
 import { useMeshStore } from "src/stores/meshStore";
+import { MutationType } from "pinia";
 
 const props = defineProps({
   meshModel: {
@@ -30,6 +31,12 @@ const meshStore = useMeshStore();
 
 const isActiveItem = ref(false);
 
+meshStore.$subscribe((mutation, state) => {
+  if (mutation.type == MutationType.patchObject) {
+    isActiveItem.value = isCurrentMesh();
+  }
+});
+
 function isCurrentMesh() {
   return meshStore.name == props.meshModel.name;
 }
@@ -37,8 +44,8 @@ function isCurrentMesh() {
 const changeCurrentMesh = () => {
   if (!isCurrentMesh()) {
     meshStore.$patch(props.meshModel);
-    isActiveItem.value = true;
   }
+  isActiveItem.value = isCurrentMesh();
 };
 
 function captionDate(date) {
