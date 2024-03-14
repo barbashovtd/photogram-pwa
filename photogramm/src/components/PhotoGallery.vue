@@ -1,35 +1,40 @@
 <template>
   <!-- <q-card class="shadow-3 uploader">
     <q-card-section> -->
-  <q-form @submit="uploadGallery">
-    <q-input
-      placeholder=" Имя модели"
-      v-model="galleryName"
-      class="row justify-center"
-      type="text"
-      :rules="[(val) => !!val || 'Обязательное поле']"
-    />
-    <div class="row justify-center">
-      <q-uploader
-        ref="uploader"
-        :url="apiUploadURL"
-        :form-fields="[{ name: 'gallery', value: galleryName }]"
-        accept="image/*"
-        max-total-size="104857600"
-        max-files="20"
-        label="Фото"
-        text-color="#eaeaea"
-        bordered
-        no-thumbnails
-        multiple
-        hide-upload-btn
+  <q-card class="card">
+    <q-form @submit="uploadGallery" class="justify-center q-pa-md">
+      <q-input
+        placeholder=" Имя модели"
+        v-model="galleryName"
+        type="text"
+        class="row"
+        :rules="[
+          (val) => !!val || 'Обязательное поле',
+          (val) => val != '404' || 'Имя уже используется',
+        ]"
+        lazy-rules
       />
-    </div>
-    <div class="row justify-center">
-      <q-btn label="Создать" type="submit" />
-      <!-- class="q-ma-md" /> -->
-    </div>
-  </q-form>
+      <div class="row justify-center">
+        <q-uploader
+          ref="uploader"
+          :url="apiUploadURL"
+          :form-fields="[{ name: 'gallery', value: galleryName }]"
+          accept="image/*"
+          max-total-size="104857600"
+          max-files="20"
+          label="Фото"
+          text-color="#eaeaea"
+          no-thumbnails
+          multiple
+          hide-upload-btn
+          flat
+        />
+        <div class="row justify-center">
+          <q-btn label="Создать" type="submit" flat />
+        </div>
+      </div>
+    </q-form>
+  </q-card>
   <!-- </q-card-section>
   </q-card> -->
 </template>
@@ -64,11 +69,11 @@ async function uploadGallery() {
 }
 </script>
 
-<!-- <style>
-.uploader {
-  background-color: #187adc;
-  border-radius: 50;
-  border-color: #0c64bc;
-  width: auto;
+<style lang="scss">
+.card {
+  background-color: $primary;
+  .q-btn {
+    color: #eaeaea;
+  }
 }
-</style> -->
+</style>

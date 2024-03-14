@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpR fFf">
+  <q-layout view="hHh lpR lFf">
     <q-header
       reveal
       elevated
@@ -19,21 +19,17 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      :overlay="false"
-      v-model="leftDrawerOpen"
-      :width="400"
-      side="left"
-      class="left-menu"
-    >
+    <q-drawer :overlay="true" v-model="leftDrawerOpen" :width="400" side="left">
       <PhotoGallery />
-      <q-list padding bordered>
-        <EssentialLink
-          v-for="(mesh, index) in modelsList"
-          :key="index"
-          :meshModel="mesh"
-        />
-      </q-list>
+      <q-card>
+        <q-list padding bordered>
+          <EssentialLink
+            v-for="(mesh, index) in modelsList"
+            :key="index"
+            :meshModel="mesh"
+          />
+        </q-list>
+      </q-card>
     </q-drawer>
 
     <q-page-container>
@@ -70,31 +66,21 @@ meshStore.$subscribe((mutation, state) => {
 
 const qDrawerWidth = computed(() => window.width * 0.5);
 
-const leftDrawerOpen = ref(false);
+const leftDrawerOpen = ref(true);
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 </script>
-<!-- <style>
-.left-menu {
-  background-color: transparent;
+<style lang="scss">
+.q-drawer {
+  background: transparent;
+  padding-top: 1rem;
+  padding-left: 1rem;
 }
-.mesh-list {
-  background-color: #187adc;
-  color: #eaeaea;
-  border: 3;
-  /* border-radius: 50; */
-  border-color: #0c64bc;
-}
-.rounded {
-  border-radius: 50px;
-}
-.qheader {
-  /* border-radius: 50; */
-  width: 90%;
-  align-content: center;
-}
-.q-separator {
+.q-item__label {
   color: #eaeaea;
 }
-</style> -->
+.q-item__label--caption {
+  color: #c1c1c1;
+}
+</style>
