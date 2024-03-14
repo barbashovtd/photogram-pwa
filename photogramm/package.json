@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@capacitor/camera": "^5.0.9",
-    "@capacitor/core": "^5.7.0",
+    "@capacitor/core": "^5.7.2",
     "@capacitor/filesystem": "^5.2.1",
     "@ionic/pwa-elements": "^3.2.2",
     "@quasar/cli": "^2.4.0",
@@ -24,7 +24,7 @@
     "@tresjs/core": "^3.7.0",
     "axios": "^1.6.7",
     "pinia": "^2.1.7",
-    "quasar": "^2.14.5",
+    "quasar": "^2.15.0",
     "three": "^0.161.0",
     "vue": "3.4.15",
     "vue-router": "^4.3.0"
@@ -32,11 +32,11 @@
   "devDependencies": {
     "@quasar/app-vite": "2.0.0-beta.1",
     "@types/three": "^0.161.2",
-    "@vue/devtools": "^7.0.15",
-    "autoprefixer": "^10.4.17",
-    "eslint": "^8.56.0",
+    "@vue/devtools": "^7.0.17",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-vue": "^9.21.1",
+    "eslint-plugin-vue": "^9.23.0",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5"
   },
